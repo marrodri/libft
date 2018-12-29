@@ -80,10 +80,7 @@ char			*ft_itoa(int n)
 		return (NULL);
 	if (n == -2147483648)
 	{
-		str[i++] = '-';
-		str[i++] = '2';
-		n = 147483648;
-		str = nbr_to_str(n, i, (size - 1), str);
+		return(ft_strdup("-2147483648"));
 	}
 	else
 		str = nbr_to_str(n, i, (size - 1), str);
