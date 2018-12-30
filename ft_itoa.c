@@ -12,7 +12,7 @@
 
 #include "libft.h"
 #include <stdio.h>
-
+//fix this
 static int		ft_check_size(int n)
 {
 	int	size;
@@ -20,7 +20,7 @@ static int		ft_check_size(int n)
 	size = 0;
 	if (n == 0)
 		return (1);
-	if (n < size)
+	if (n <= 0)
 		size = size + 1;
 	while (n != 0)
 	{
@@ -43,16 +43,18 @@ char			*ft_itoa(int n)
 	str = (char *)malloc((size + 1) * sizeof(char *));
 	if (str == NULL)
 		return (NULL);
+	str[size--] = '\0';
 	if (n < 0)
 	{
 		str[0] = '-';
 		n = n * -1;
 		i++;
 	}
-	while (i < size--)
+	while (size >= i)
 	{
 		str[size] = (n % 10) + '0';
 		n /= 10;
+		size--;
 	}
 	return (ft_strdup(str));
 }
