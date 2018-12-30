@@ -11,25 +11,24 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+
 char	*ft_strncpy(char *dest, const char *src, size_t n)
 {
-	size_t i;
+	size_t		strlen;
+	size_t		i;
 
 	i = 0;
-	if(!dest || !src)
+	if (!dest || !src)
 		return (NULL);
-	while (src[i] != '\0' && i < n && dest[i] != '\0')
+	strlen = ft_strlen((char*)src);
+	while (i < n)
 	{
-		dest[i] = src[i];
-		i++;
-	}
-	if (i < n && src[i] == '\0' && dest[i] != '\0')
-	{
-		while (i < n)
-		{
+		if (i > strlen)
 			dest[i] = '\0';
-			++i;
-		}
+		else
+			dest[i] = src[i];
+		i++;
 	}
 	return (dest);
 }
+
